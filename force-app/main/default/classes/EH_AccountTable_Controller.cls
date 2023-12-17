@@ -1,7 +1,7 @@
 public class EH_AccountTable_Controller {
 
     private class Row {
-        
+
         @AuraEnabled
         public String accountId {get; set;}
 
@@ -67,6 +67,7 @@ public class EH_AccountTable_Controller {
                 Rating,
                 (SELECT Id FROM Contacts)
             FROM Account 
-        WHERE Rating = 'Warm'];
+            WHERE Rating = 'Warm'
+            ORDER BY Name asc]];
     }
 }
