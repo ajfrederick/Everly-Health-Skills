@@ -1,5 +1,19 @@
+/**
+ * @name EH_AccountTable_Controller
+ * @desc UI controller for lwc ehAccountTable
+ * 
+ * @author Andrew Frederick and Unknown
+ */
 public class EH_AccountTable_Controller {
 
+/**
+ * INNER CLASSES
+ */
+
+    /**
+     * @name Row
+     * @desc class to format data for lwc datatable
+     */
     private class Row {
 
         @AuraEnabled
@@ -38,6 +52,16 @@ public class EH_AccountTable_Controller {
         }
     }
     
+/**
+ * LWC METHODS
+ */
+
+    /**
+     * @name getWarmAccounts
+     * @desc returns accounts with a rating of 'warm' to lwc
+     * 
+     * @return formatted data rows for data table
+     */
     @AuraEnabled(cacheable=true)
     public static List<Row> getWarmAccounts(){
 
@@ -56,6 +80,10 @@ public class EH_AccountTable_Controller {
         return rows;
     }
 
+/**
+ * QUERY METHODS
+ */
+
     private static List<Account> getAccounts() {
         return [
             SELECT 
@@ -68,6 +96,6 @@ public class EH_AccountTable_Controller {
                 (SELECT Id FROM Contacts)
             FROM Account 
             WHERE Rating = 'Warm'
-            ORDER BY Name asc]];
+            ORDER BY Name asc];
     }
 }

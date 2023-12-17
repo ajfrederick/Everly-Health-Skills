@@ -33,7 +33,7 @@ export default class EhAccountTable extends LightningElement {
 
     @wire(getWarmAccounts,{})
     wiredResults({data, error}) {
-        console.log(data);
+        
         if (data) {
             this.data = data;
         } else 
