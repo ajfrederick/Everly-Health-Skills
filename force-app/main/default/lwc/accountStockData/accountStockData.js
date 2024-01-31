@@ -27,7 +27,6 @@ export default class AccountStockData extends LightningElement {
     }
 
     handleDateChange( event ){
-        console.log(event.currentTarget.value);
         this.marketDate = event.currentTarget.value;
     }
 }
