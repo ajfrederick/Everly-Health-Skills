@@ -33,7 +33,6 @@ public with sharing class Controller_AccountStockData {
     }
 
     public class StockData {
-
         @AuraEnabled
         public Decimal open {get; set;}
 
