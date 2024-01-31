@@ -13,4 +13,12 @@
         <members>*</members>
         <name>ExternalCredential</name>
     </types>
+    <types>
+        <members>Account_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Stock_Market_API</members>
+        <name>PermissionSet</name>
+    </types>
 </Package>
