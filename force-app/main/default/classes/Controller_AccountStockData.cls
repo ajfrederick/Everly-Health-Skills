@@ -1,5 +1,12 @@
+/**
+ * @name Controller_AccountStockData
+ * @desc UI controller for accountStockData.js
+ */
 public with sharing class Controller_AccountStockData {
 
+/**
+ * PROPS
+ */
 
     private static final String API_VERSION = 'v1';
     private static final String API_METHOD = 'open-close';
@@ -32,6 +39,10 @@ public with sharing class Controller_AccountStockData {
         set;
     }
 
+/**
+ * CLASSES
+ */
+
     public class StockData {
         @AuraEnabled
         public Decimal open {get; set;}
@@ -45,6 +56,10 @@ public with sharing class Controller_AccountStockData {
         @AuraEnabled
         public Decimal close {get; set;}
     }
+
+/**
+ * LWC METHODS
+ */
 
     @AuraEnabled(cacheable=true)
     public static StockData getStockData( Id accId, String mDate ){
@@ -72,6 +87,10 @@ public with sharing class Controller_AccountStockData {
 
         return stockData;
     }
+
+/**
+ * QUERY METHODS
+ */
 
     private static Account getAccount(){
         return [
