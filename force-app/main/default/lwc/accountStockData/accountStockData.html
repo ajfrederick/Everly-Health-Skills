@@ -1,0 +1,66 @@
+<template>
+
+    <lightning-layout>
+        <lightning-layout-item class="slds-p-around_medium slds-m-bottom_small">
+            
+            <lightning-input
+                label="Market Date"
+                type="date"
+                value={marketDate}
+                onchange={handleDateChange}>
+            </lightning-input>
+
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <div class="slds-box slds-p-around_medium">
+        <lightning-layout horizontal-align="spread">
+
+            <lightning-layout-item>
+                <div class="header-column">
+                    Open
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <div class="header-column">
+                    High
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <div class="header-column">
+                    Low
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <div class="header-column">
+                    Close
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+        <lightning-layout horizontal-align="spread">
+
+            <lightning-layout-item>
+                <lightning-formatted-number value={stockData.open} format-style="currency" currency-code="USD"></lightning-formatted-number>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-formatted-number value={stockData.high} format-style="currency" currency-code="USD"></lightning-formatted-number>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-formatted-number value={stockData.low} format-style="currency" currency-code="USD"></lightning-formatted-number>
+            </lightning-layout-item>
+
+            <lightning-layout-item>
+                <lightning-formatted-number value={stockData.close} format-style="currency" currency-code="USD"></lightning-formatted-number>
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </div>
+    
+</template>
