@@ -8,25 +8,43 @@ export default class AccountStockData extends LightningElement {
 
     marketDate = new Date().toISOString().split('T')[0];
 
-    stockData = {
-        open : '',
-        high : '',
-        low : '',
-        close : '',
-    };
+    stockData;
+
+    noData = false;
 
     @wire( getStockData, { accId : '$recordId', mDate : '$marketDate' } )
     wiredStockDate({data, error}){
 
         if( data ){
-            this.stockData = data;
+
+            if( !Object.keys(data).length ){
+                this.stockData = this.getDefaulStockData();
+                this.noData = true;
+            } else {
+                this.stockData = data;
+                this.noData = false;
+            }
+
         } else
         if( error ){
             console.error(error);
         }
     }
+
+    connectedCallback(){
+        this.stockData = this.getDefaulStockData();
+    }
     
     handleDateChange( event ){
         this.marketDate = event.currentTarget.value;
+    }
+
+    getDefaulStockData(){
+        return {
+            open : '',
+            high : '',
+            low : '',
+            close : '',
+        };
     }
 }

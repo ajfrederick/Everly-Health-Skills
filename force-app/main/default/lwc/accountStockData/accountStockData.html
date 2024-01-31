@@ -44,21 +44,31 @@
 
         <lightning-layout horizontal-align="spread">
 
-            <lightning-layout-item>
-                <lightning-formatted-number value={stockData.open} format-style="currency" currency-code="USD"></lightning-formatted-number>
-            </lightning-layout-item>
+            <template if:true={noData}>
+                <lightning-layout-item padding="vertical-small">
+                    <span>
+                        There is no stock data for the selected date.
+                    </span>
+                </lightning-layout-item>
+            </template>
 
-            <lightning-layout-item>
-                <lightning-formatted-number value={stockData.high} format-style="currency" currency-code="USD"></lightning-formatted-number>
-            </lightning-layout-item>
+            <template if:false={noData}>
+                <lightning-layout-item>
+                    <lightning-formatted-number value={stockData.open} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                </lightning-layout-item>
 
-            <lightning-layout-item>
-                <lightning-formatted-number value={stockData.low} format-style="currency" currency-code="USD"></lightning-formatted-number>
-            </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-formatted-number value={stockData.high} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                </lightning-layout-item>
 
-            <lightning-layout-item>
-                <lightning-formatted-number value={stockData.close} format-style="currency" currency-code="USD"></lightning-formatted-number>
-            </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-formatted-number value={stockData.low} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                </lightning-layout-item>
+
+                <lightning-layout-item>
+                    <lightning-formatted-number value={stockData.close} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                </lightning-layout-item>
+            </template>
 
         </lightning-layout>
     </div>
